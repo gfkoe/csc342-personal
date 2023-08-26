@@ -7,8 +7,8 @@ I think that in general, ungrading provides a unique way for students to evaluat
 
 ## 2. What are your thoughts on the way Ungrading will be applied to this class based on what has been explained by your instructor and what is described in the syllabus?
 
-Your thoughts here...
+As someone with almost no web development experience, I think that the way that ungrading will be applied and will allow me to get out of the course what I put into it will provide me with a bit of relaxation. In previous courses I have always been worried about trying to spend hours pouring over code in order to make something work perfectly, or have had no clue on how to do something and have received a bad grade which discouraged me. The ability to learn and submit assignments to the degree that I know how to do them, provided they function, of course, will allow me a better environment for learning.
 
 ## 3. On the scale from 1 to 5, how confident are you in that you can earn an A in this class (1 is lowest, 5 is highest)?
 
-\#
+\#4
