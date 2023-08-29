@@ -1,5 +1,20 @@
-.landing {
+h1.header {
   border: 5px dashed lightcoral;
   border-radius: 15px;
   font-size: 50px;
+  background-color: rgba(240, 240, 226, 0.733);
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  padding: 12px;
+}
+
+img {
+  width: 100px;
+}
+img[alt] {
+  font-size: 15px;
+}
+
+body {
+  background-color: rgba(154, 153, 145, 0.774);
 }
