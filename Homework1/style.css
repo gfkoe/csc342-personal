@@ -1,20 +1,30 @@
 h1.header {
-  border: 5px dashed lightcoral;
-  border-radius: 15px;
+  border: 5px solid gray;
+  border-radius: 5px;
   font-size: 50px;
-  background-color: rgba(240, 240, 226, 0.733);
+  background-color: rgba(218, 215, 215, 0.628);
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+
   padding: 12px;
+  margin-top: 5px;
+}
+
+h1.header u {
+  text-decoration-color: red;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 13px;
 }
 
 img {
+  padding-left: 25px;
   width: 100px;
+  
 }
 img[alt] {
   font-size: 15px;
 }
 
 body {
-  background-color: rgba(154, 153, 145, 0.774);
+  background-color: rgba(218, 215, 215, 0.628);
 }
