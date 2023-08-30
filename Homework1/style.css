@@ -1,25 +1,23 @@
-h1.header {
+#header {
   border: 5px solid gray;
   border-radius: 5px;
   font-size: 50px;
   background-color: rgba(218, 215, 215, 0.628);
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-
   padding: 12px;
   margin-top: 5px;
 }
 
-h1.header u {
+#header u {
   text-decoration-color: red;
   text-decoration-thickness: 3px;
   text-underline-offset: 13px;
 }
 
-img {
+#logo {
   padding-left: 25px;
-  width: 100px;
-  
+  width: 100px;  
 }
 img[alt] {
   font-size: 15px;
