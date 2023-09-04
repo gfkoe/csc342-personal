@@ -1,27 +1,50 @@
 #header {
   border: 5px solid gray;
   border-radius: 5px;
-  font-size: 50px;
+  font-size: 40px;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   padding: 10px;
   margin-top: 5px;
   background-size: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
 #header u {
   text-decoration-color: red;
   text-decoration-thickness: 3px;
   text-underline-offset: 13px;
+  top: 4%;
+  display: flex;
+  text-align: center;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#logo {
+#header img {
+  display: flex;
   width: 100px;
-  position: relative;
-  top: 4%;
-  left: 65%;
 }
+
+#header ul {
+  list-style-type: none;
+  display: flex;
+  top: 4%;
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  
+}
+#header a {
+  text-decoration: none;
+  color: inherit;
+}
+#header li{
+  margin-inline: 5px;
+  
+}
+
 img[alt] {
   font-size: 15px;
 }
