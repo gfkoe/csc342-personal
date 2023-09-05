@@ -1,5 +1,4 @@
 header {
-
   border-radius: 5px;
 
   box-sizing: border-box;
@@ -19,8 +18,7 @@ header {
   display: inline;
   position: relative;
   font-size: 40px;
-  font-family: 'Roboto', sans-serif;
-  
+  font-family: "Roboto", sans-serif;
 }
 
 #header img {
@@ -36,7 +34,7 @@ header {
   display: block;
   top: 4%;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   position: fixed;
   right: 0%;
   margin-top: 0%;
@@ -51,10 +49,9 @@ header {
   text-decoration: none;
   color: inherit;
 }
-#header li{
+#header li {
   margin-left: 0px;
   display: inline;
-  
 }
 
 img[alt] {
@@ -73,8 +70,8 @@ body h1 {
 
 body hr {
   width: 85%;
-  height: .5px;
-  background-color:  red;
+  height: 0.5px;
+  background-color: red;
 }
 
 h1.headline {
