@@ -1,47 +1,59 @@
-#header {
-  border: 5px solid gray;
+#header h1 {
+
   border-radius: 5px;
-  font-size: 40px;
-  font-family: 'Roboto', sans-serif;
+
   box-sizing: border-box;
-  padding: 10px;
   margin-top: 5px;
   background-size: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: inline;
 }
 
-#header u {
-  text-decoration-color: red;
+#header p {
+  /*text-decoration-color: red;
   text-decoration-thickness: 2px;
-  text-underline-offset: 13px;
-  top: 4%;
-  display: flex;
+  text-underline-offset: 13px; */
+  top: 5%;
   text-align: center;
-  justify-self: center;
   margin-left: auto;
   margin-right: auto;
+  display: inline;
+  position: relative;
+  font-size: 40px;
+  font-family: 'Roboto', sans-serif;
+  
 }
 
 #header img {
-  display: flex;
+  display: inline;
   width: 100px;
+  position: fixed;
+  left: 0%;
+  padding-left: 5px;
 }
 
 #header ul {
   list-style-type: none;
-  display: flex;
+  display: block;
   top: 4%;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
-  
+  position: fixed;
+  right: 0%;
+  margin-top: 0%;
+  padding-right: 5px;
+}
+
+.head {
+  text-align: center;
+  position: relative;
 }
 #header a {
   text-decoration: none;
   color: inherit;
 }
 #header li{
-  margin-inline: 5px;
+  margin-left: 0px;
+  display: inline;
   
 }
 
@@ -51,4 +63,17 @@ img[alt] {
 
 body {
   background-color: rgba(218, 215, 215, 0.628);
+}
+
+body.h1 {
+  display: inline;
+  
+}
+
+h1.headline {
+  text-align: center;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
