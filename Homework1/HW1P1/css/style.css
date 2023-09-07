@@ -1,6 +1,5 @@
 header {
   border-radius: 5px;
-
   box-sizing: border-box;
   margin-top: 5px;
   background-size: 100%;
@@ -20,7 +19,9 @@ header {
   font-size: 40px;
   font-family: "Roboto", sans-serif;
 }
-
+#header {
+  position: relative;
+}
 #header img {
   display: inline;
   width: 100px;
@@ -76,11 +77,6 @@ h1.headline {
   justify-content: center;
 }
 
-p.article {
-  justify-content: center;
-  margin-left: 25%;
-  margin-right: 25%;
-}
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -118,4 +114,31 @@ p.article {
 
 .other_text {
   grid-area: 1 / 3 / 2 / 4;
+}
+
+.flexbox {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.article1 {
+  display: flex;
+  flex-basis: auto;
+  flex-shrink: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.article2 {
+  display: flex;
+  flex-basis: auto;
+  flex-shrink: 1;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
