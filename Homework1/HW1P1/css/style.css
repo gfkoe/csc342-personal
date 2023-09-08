@@ -59,6 +59,11 @@ img[alt] {
   font-size: 15px;
 }
 
+.foot {
+  padding-bottom: 25px;
+  
+}
+
 body {
   background-color: rgba(218, 215, 215, 1);
 }
@@ -77,18 +82,11 @@ h1.headline {
   justify-content: center;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-}
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 0.1fr;
+  grid-template-rows: 0.5fr 0.1fr 1fr;
   gap: 0px 10px;
   grid-auto-flow: row;
   justify-items: center;
@@ -98,14 +96,11 @@ h1.headline {
   grid-area: 1 / 2 / 2 / 3;
 }
 
-.other_text {
-  grid-area: 1 / 3 / 2 / 4;
-}
 
 .hurricane_article {
   grid-area: 1 / 1 / 2 / 2;
   margin-left: 25px;
-  margin-top: 25px;
+  margin-top: 10px;
   font-family: "Roboto", sans-serif;
 }
 
@@ -115,22 +110,36 @@ h1.headline {
 }
 
 .hurricane_img img {
+  margin-top: 10px;
+  width: 550px;
+}
+
+.ben_shelton {
+  grid-area: 1 / 3 / 2 / 4;
+  margin-right: 25px;
+  margin-top: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.ben_shelton p {
+  font-size: 25px;
+}
+
+.ben_shelton img {
   width: 450px;
 }
 
-.other_text {
-  grid-area: 1 / 3 / 2 / 4;
-}
-
 .flexbox {
-  margin-top: 100px;
+  margin-top: -500px;
   display: flex;
-  width: 50%;
+  width: 70%;
   height: 100%;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: nowrap;
-  top: 10%;
+  top: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .article1 {
   display: flex;
@@ -138,7 +147,7 @@ h1.headline {
   flex-shrink: 1;
   align-items: center;
   flex-direction: column;
-
+  padding-right: 10px;;
 }
 
 .article1 h1 {
@@ -148,8 +157,8 @@ h1.headline {
   width: 100%;
   height: 100%;
   background-color: rgba(218, 215, 215, 1);
+  padding-top: 10%;
 }
-
 .article2 h1 {
   position: sticky;
   top: 0%;
@@ -157,6 +166,7 @@ h1.headline {
   width: 100%;
   height: 100%;
   background-color: rgba(218, 215, 215, 1);
+  padding-top: 10%;
 }
 .article2 {
   display: flex;
