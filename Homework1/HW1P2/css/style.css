@@ -15,9 +15,9 @@
   box-sizing: border-box;
   position: sticky;
   top: 0;
-  width: 50%;
+  width: 31%;
   background-color: rgb(214, 208, 208);
-  height: 60%;
+  height: 65%;
   margin-left: -10px;
   margin-top: -50px;
   margin-bottom: -50px;
@@ -69,7 +69,7 @@ nav div {
 .right_section {
   grid-area: banner;
   width: 50%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   display: flex;
   margin-top: 90px;
 }
@@ -79,7 +79,16 @@ nav div {
   display: flex;
   align-items: flex-end;
   flex-direction: row-reverse;
-  height: 90%;
+  height: 100%;
+}
+
+#verification {
+  margin-top: -50px;
+  margin-bottom: -50px;
+}
+.messages {
+  margin-left: -50px;
+  margin-right: -150px;
 }
 
 .notifications_title {
@@ -89,6 +98,7 @@ nav div {
 .notifications button {
   height: 15%;
   width: 15%;
+  margin-bottom: 5px;
 }
 main {
   grid-area: main;
@@ -100,7 +110,9 @@ main {
 }
 
 .main {
-  position: relative;
+  position: static;
+  margin-left: -580px;
+  margin-top: -50px;
 }
 .targets {
   position: sticky;
@@ -144,7 +156,7 @@ main {
 .searchbar {
   grid-area: banner;
   margin-top: 175px;
-  margin-left: 25px;
+  margin-left: 4px;
 }
 #text-field-hero-input {
   width: 500px;
@@ -155,10 +167,10 @@ header {
   grid-column: span 2;
   background-color: rgb(214, 208, 208);
   top: 0;
-  margin: -10px;
   position: relative;
-  height: 15%;
-  margin-left: -350px;
+  height: 17%;
+  margin-left: -600px;
+  margin-top: -50px;
 }
 
 .revenue_orders {
