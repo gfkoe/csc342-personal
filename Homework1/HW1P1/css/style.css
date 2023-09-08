@@ -61,7 +61,6 @@ img[alt] {
 
 .foot {
   padding-bottom: 25px;
-  
 }
 
 body {
@@ -82,7 +81,6 @@ h1.headline {
   justify-content: center;
 }
 
-
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -96,7 +94,6 @@ h1.headline {
   grid-area: 1 / 2 / 2 / 3;
 }
 
-
 .hurricane_article {
   grid-area: 1 / 1 / 2 / 2;
   margin-left: 25px;
@@ -106,7 +103,6 @@ h1.headline {
 
 .hurricane_article p {
   font-size: 25px;
-  
 }
 
 .hurricane_img img {
@@ -148,7 +144,7 @@ h1.headline {
   flex-shrink: 1;
   align-items: center;
   flex-direction: column;
-  padding-right: 10px;;
+  padding-right: 10px;
 }
 
 .article1 h1 {
