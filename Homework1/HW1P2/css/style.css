@@ -6,7 +6,7 @@
 }
 
 .user {
-  display: block;
+  display: inline-block;
   border-radius: 5px;
   box-sizing: border-box;
   padding-left: 10px;
@@ -15,19 +15,20 @@
   box-sizing: border-box;
   position: sticky;
   top: 0;
-  width: 31%;
+  width: 100%;
   background-color: rgb(214, 208, 208);
   height: 65%;
-  margin-left: -10px;
+  left: 0;
   margin-top: -50px;
   margin-bottom: -50px;
   bottom: 50%;
+  margin-right: 20px;
+  margin-left: 0;
 }
 .user p {
   display: block;
   margin-bottom: -5px;
   margin-top: -5px;
-  padding-left: 10px;
 }
 .course_name {
   font-family: "Courier New", Courier, monospace;
@@ -38,7 +39,7 @@
 @media (min-width: 40em) {
   body {
     grid-template-areas:
-      "banner banner"
+      "nav banner"
       "nav main"
       "nav footer";
   }
@@ -61,7 +62,9 @@ nav {
   grid-area: nav;
   margin-bottom: 5px;
   grid-row: span 2;
+  margin-right: 10px;
 }
+
 nav div {
   margin-top: 5px;
 }
@@ -87,7 +90,6 @@ nav div {
   margin-bottom: -50px;
 }
 .messages {
-  margin-left: -50px;
   margin-right: -150px;
 }
 
@@ -102,7 +104,6 @@ nav div {
 }
 main {
   grid-area: main;
-  margin-left: -300px;
 }
 
 .settings_dropdown {
@@ -110,12 +111,11 @@ main {
 }
 
 .main {
-  position: static;
-  margin-left: -580px;
+  position: relative;
   margin-top: -50px;
 }
 .targets {
-  position: sticky;
+  position: relative;
   display: flex;
   width: 30%;
   justify-content: space-between;
@@ -169,7 +169,6 @@ header {
   top: 0;
   position: relative;
   height: 17%;
-  margin-left: -600px;
   margin-top: -50px;
 }
 
