@@ -1,23 +1,57 @@
 #logo {
     padding-top: 30px;
-    width: 25%;
+    width: 100%;
 }
 
 .user {
-    display: inline;
+    display: inline-block;
 }
 
 .user p {
-    margin-left: 10px;
-    display: inline;
+    top: 0;
+    display: block;
+    margin-bottom: -5px;
+    margin-top: -5px;
+    
+}
+
+@media (min-width: 40em) {
+    body {
+        grid-template-areas: 
+        'banner banner'
+        'nav main'
+        'nav footer'
+        ;
+    }
 }
 
 body {
     background-color: lightblue;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: auto1fr auto;
+    min-width: 100vh;
+    grid-template-columns: 12em 1fr;
 }
 
-.navbar div {
-    margin-top: 5px;
-    display: inline-block;
+nav {
+    grid-area: nav;
+
     margin-bottom: 5px;
+}
+nav div {
+    margin-top: 5px;
+}
+
+header {
+    grid-area: banner;
+    margin-left: 50%;
+    display: inline-flex;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+}
+
+main {
+    grid-area: main;
 }
