@@ -1,67 +1,71 @@
 #logo {
   padding-top: 30px;
-  width: 200px;
-  grid-area: banner;
-  padding-left: 10px;
 }
 
 .user {
   display: inline-block;
-  border-radius: 5px;
+
   box-sizing: border-box;
-  padding-left: 10px;
 }
 .sidebar {
+  grid-area: nav;
   box-sizing: border-box;
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: rgb(214, 208, 208);
-  height: 65%;
+  background-color: rgba(61, 180, 220, 0.985);
   left: 0;
-  margin-top: -50px;
-  margin-bottom: -50px;
-  bottom: 50%;
-  margin-right: 20px;
-  margin-left: 0;
+  padding-left: 5px;
+  border-radius: 15px;
 }
+
 .user p {
   display: block;
   margin-bottom: -5px;
   margin-top: -5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.course_name {
-  font-family: "Courier New", Courier, monospace;
-  text-shadow: 0px 0px 1px black;
-  background-color: rgb(214, 208, 208);
-  padding-left: 10px;
+#course_title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 1px rgba(20, 20, 20, 0.585) solid;
 }
-@media (min-width: 40em) {
+@media (min-width: 0em) {
   body {
     grid-template-areas:
       "nav banner"
-      "nav main"
-      "nav footer";
+      "nav main";
   }
 }
 
-@media (mind-width: 40em) {
+@media (min-width: 0em) {
   body {
     grid-template-columns: 12em 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto;
   }
 }
 
 body {
-  background-color: lightblue;
+  background-color: #eee;
   display: grid;
-  grid-gap: 1em;
+  margin: 0;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  grid-area: banner;
+  grid-column: span 2;
+
+  justify-content: space-between;
+  border-radius: 15px;
+  margin-left: 1em;
+  padding-bottom: 50px;
 }
 
 nav {
   grid-area: nav;
   margin-bottom: 5px;
-  grid-row: span 2;
+  grid-row: span 1;
   margin-right: 10px;
 }
 
@@ -71,55 +75,49 @@ nav div {
 
 .right_section {
   grid-area: banner;
-  width: 50%;
   justify-content: space-evenly;
   display: flex;
-  margin-top: 90px;
 }
+
+.right_section div {
+  padding-left: 15px;
+}
+
 .messages,
 .notifications {
   grid-area: banner;
   display: flex;
-  align-items: flex-end;
   flex-direction: row-reverse;
-  height: 100%;
 }
 
 #verification {
   margin-top: -50px;
   margin-bottom: -50px;
 }
-.messages {
-  margin-right: -150px;
-}
-
-.notifications_title {
-  font-size: 30px;
-}
 
 .notifications button {
-  height: 15%;
-  width: 15%;
-  margin-bottom: 5px;
+  display: block;
 }
+
 main {
   grid-area: main;
-}
-
-.settings_dropdown {
-  margin-left: -25px;
-}
-
-.main {
   position: relative;
-  margin-top: -50px;
+  margin-top: 1em;
+  margin-left: 1em;
 }
+
 .targets {
+  border-radius: 15px;
+  background-color: white;
   position: relative;
   display: flex;
-  width: 30%;
-  justify-content: space-between;
-  margin-top: 50px;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-left: 5px;
+  padding-right: 5px;
+  flex-wrap: nowrap;
+  box-shadow: rgba(26, 26, 26, 0.15) 2px 2px 3px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .map img {
@@ -127,16 +125,29 @@ main {
 }
 
 .revenue_by_location {
-  display: inline;
-  margin-top: 50px;
-  margin-left: 1000px;
+  display: block;
+  background-color: white;
+  border-radius: 15px;
+  padding-left: 5px;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .map {
   display: flex;
-  width: 15%;
-  justify-content: space-between;
+  padding-left: 5px;
 }
 
+.line_charts {
+  display: inline-flex;
+  border-radius: 15px;
+  background-color: white;
+  padding-left: 5px;
+  margin-top: 1em;
+  padding-right: 5px;
+  width: 100%;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 .impressions img {
   width: 250px;
   margin-right: 5px;
@@ -144,38 +155,27 @@ main {
 
 .traffic img {
   width: 250px;
-  margin-left: 5px;
-}
-
-.line_charts {
-  display: inline-flex;
-  width: 30%;
-  justify-content: space-between;
 }
 
 .searchbar {
   grid-area: banner;
-  margin-top: 175px;
-  margin-left: 4px;
+
+  padding-left: 0.5em;
 }
+
 #text-field-hero-input {
-  width: 500px;
-}
-header {
-  display: flex;
-  grid-area: banner;
-  grid-column: span 2;
-  background-color: rgb(214, 208, 208);
-  top: 0;
-  position: relative;
-  height: 17%;
-  margin-top: -50px;
+  width: 80%;
 }
 
 .revenue_orders {
   display: flex;
-  width: 50%;
+  width: 100%;
   justify-content: space-between;
+  border-radius: 15px;
+  background-color: white;
+  margin-top: 1em;
+  padding-left: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .revenue img {
@@ -186,4 +186,46 @@ header {
 .orders img {
   width: 350px;
   margin-right: 19px;
+}
+
+.student_button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button:hover + .dropdown {
+  opacity: 1;
+}
+
+.dropdown {
+  opacity: 0;
+  position: absolute;
+  padding: 5px;
+  z-index: 10;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.dropdown li {
+  text-decoration: none;
+  color: inherit;
+  list-style-type: none;
+}
+
+.dropdown ul {
+  padding-inline-start: 0;
+}
+
+.dropdown h6 {
+  margin: 0;
+}
+
+.button {
+  position: relative;
+}
+.navbar_div a {
+  text-decoration: none;
+  color: inherit;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

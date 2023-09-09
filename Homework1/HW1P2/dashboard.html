@@ -15,7 +15,7 @@
         <a href="#">
           <img id="logo" src="./images/logo.svg" alt="logo" />
         </a>
-        <p class="course_name">NCSU - CSC 342</p>
+        <p id="course_title">NCSU - CSC 342</p>
       </div>
       <!-- End App Logo section -->
 
@@ -96,13 +96,13 @@
         <!-- Right section -->
         <div class="right_section">
           <!-- Account dropdown -->
-          <div class="student_button">
-            <button type="button">
+          <div>
+            <button class="button" type="button">
               <img src="./images/face.jpg" alt="user" />
               <span>Stu Dent</span>
             </button>
 
-            <div tabindex="-1" class="right_">
+            <div tabindex="-1" class="right_ dropdown">
               <ul role="menu" aria-hidden="true" aria-orientation="vertical">
                 <li role="menuitem">
                   <a href="#">Edit profile</a>
@@ -116,9 +116,9 @@
           <!-- end account dropdown -->
 
           <!-- Settings Dropdown -->
-          <div class="settings_dropdown"
-            <button>&#9881;</button>
-            <div tabindex="-1">
+          <div>
+            <button class="button">&#9881;</button>
+            <div class="dropdown" tabindex="-1">
               <ul role="menu" aria-hidden="true" aria-orientation="vertical">
                 <li role="menuitem">
                   <a href="#">Settings</a>
@@ -132,10 +132,10 @@
           <!-- End settings dropdown -->
 
           <!-- Notifications dropdown -->
-          <div class="notifications">
-            <button>&#9888;</button>
-            <div tabindex="-1">
-              <h6 class="notifications_title">Notifications</h6>
+          <div>
+            <button class="button">&#9888;</button>
+            <div class="dropdown" tabindex="-1">
+              <h6>Notifications</h6>
               <ul role="menu" aria-hidden="true" aria-orientation="vertical">
                 <li role="menuitem">
                   <a href="">
@@ -155,13 +155,13 @@
           <!-- End Notifications dropdown -->
 
           <!-- Messages dropdown -->
-          <div class="messages">
-            <button>
+          <div>
+            <button class="button">
               &#9993;
               <!-- Count Badge -->
               <span>3</span>
             </button>
-            <div tabindex="-1">
+            <div class="dropdown" tabindex="-1">
               <h6>Messages</h6>
               <ul role="menu" aria-hidden="true" aria-orientation="vertical">
                 <li role="menuitem">
