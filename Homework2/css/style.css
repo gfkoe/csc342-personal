@@ -1,0 +1,18 @@
+.calculator-body {
+  display: grid;
+  min-width: 100vh;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(5, 50px);
+}
+
+.calculator-body > button {
+  font-size: 2rem;
+  text-shadow: 1px 1px #eee;
+}
+
+.calculator-body button:hover {
+}
+
+#equals {
+  grid-column: span 4;
+}
