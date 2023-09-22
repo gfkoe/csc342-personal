@@ -11,3 +11,8 @@
 <summary>Homework1</summary>
 1. [Homework1/README.md](https://github.ncsu.edu/engr-csc342/csc342-2023Fall-gfkoeb/blob/main/Homework1/README.md)
 </details>
+
+<details>
+<summary>Project Repo</summary>
+https://github.ncsu.edu/engr-csc342/csc342-2023Fall-GroupT
+</details>
