@@ -1,18 +1,37 @@
 .calculator-body {
   display: grid;
   min-width: 100vh;
-  grid-template-columns: repeat(4, 50px);
-  grid-template-rows: repeat(5, 50px);
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(6, 50px);
 }
 
 .calculator-body > button {
   font-size: 2rem;
-  text-shadow: 1px 1px #eee;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-.calculator-body button:hover {
+#answer {
+  grid-column: span 4;
+  border: 2px solid #eee;
+  border-radius: 1px;
+  font-size: 2rem;
+  text-align: right;
 }
-
+#answer:hover {
+  border: 2px solid #bbb;
+  box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+}
 #equals {
   grid-column: span 4;
+}
+#history {
+  grid-row: span 6;
+  border: 2px solid #eee;
+  border-radius: 1px;
+  font-size: 2rem;
+  text-align: right;
+}
+#history:hover {
+  border: 2px solid #bbb;
+  box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
