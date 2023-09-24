@@ -1,7 +1,7 @@
 .calculator-body {
   display: grid;
   min-width: 100vh;
-  grid-template-columns: repeat(5, 50px);
+  grid-template-columns: repeat(7, 50px);
   grid-template-rows: repeat(6, 50px);
 }
 
@@ -26,6 +26,7 @@
 }
 #history {
   grid-row: span 6;
+  grid-column: span 3;
   border: 2px solid #eee;
   border-radius: 1px;
   font-size: 2rem;
