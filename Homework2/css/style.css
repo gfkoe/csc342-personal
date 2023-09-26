@@ -1,11 +1,11 @@
-.calculator_body {
+#calculator_body {
   display: grid;
   min-width: 100vh;
   grid-template-columns: repeat(7, 50px);
   grid-template-rows: repeat(6, 50px);
 }
 
-.buttons {
+#buttons {
   display: grid;
   min-width: 100vh;
   grid-template-columns: repeat(4, 50px);
