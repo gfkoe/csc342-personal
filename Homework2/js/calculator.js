@@ -5,6 +5,8 @@ buttons.addEventListener("click", (e) => {
   if (e.target.matches("button")) {
     //FIXME
     const key = e.target;
+    const action = key.dataset.action;
     const content = key.textContent;
+    const displayed = displayed.textContent;
   }
 });

@@ -25,7 +25,7 @@
   grid-column: span 4;
 }
 #history {
-  grid-row: span 6;
+  grid-row: span 5;
   grid-column: span 3;
   border: 2px solid #eee;
   border-radius: 1px;
@@ -35,4 +35,8 @@
 #history:hover {
   border: 2px solid #bbb;
   box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+#clear-history {
+  grid-column: span 3;
 }
