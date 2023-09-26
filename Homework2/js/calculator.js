@@ -9,11 +9,10 @@ buttons.addEventListener("click", (e) => {
     //FIXME
     const key = e.target;
     const action = key.dataset.action;
-    const content = key.textContent;
-    const displayed = displayed.textContent;
+    //const content = key.textContent;
+    displayed = key.textContent;
     console.log(displayed);
   }
-  console.log(displayed);
 });
 
 const clear = document.getElementById("clear");
@@ -22,7 +21,5 @@ const numbers = document.getElementsByClassName("number");
 const operators = document.getElementsByClassName("operator");
 const equals = document.getElementById("equals");
 const clearHistory = document.getElementById("clear-history");
-
-
 
 // operators.addEventListener("click", (e) => {});
