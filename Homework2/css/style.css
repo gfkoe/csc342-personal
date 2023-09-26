@@ -1,12 +1,19 @@
-.calculator-body {
+#calculator-body {
   display: grid;
   min-width: 100vh;
   grid-template-columns: repeat(7, 50px);
   grid-template-rows: repeat(6, 50px);
 }
 
-.calculator-body > button {
-  font-size: 2rem;
+#buttons {
+  display: grid;
+  min-width: 100vh;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(5, 50px);
+}
+
+#buttons > button {
+  font-size: 1rem;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -39,4 +46,5 @@
 
 #clear-history {
   grid-column: span 3;
+  grid-column-end: -1;
 }
