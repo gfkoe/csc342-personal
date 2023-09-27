@@ -4,7 +4,7 @@ class Calculator {
   constructor(previousText, currenText) {
     this.previousText = previousText;
     this.currenText = currenText;
-    this.clear();
+    this.clearFunc();
   }
   clearFunc() {
     this.currenText = "0";
@@ -19,7 +19,7 @@ class Calculator {
   displayAnswer() {}
 }
 const calculatorBody = document.querySelector("#calculator_body");
-const buttons = calculatorBody.querySelector("#buttons");
+const buttons = calculatorBody.querySelectorAll("#buttons");
 const answerBox = document.querySelector("#answer");
 
 const answer = document.getElementById("answer");
@@ -35,19 +35,22 @@ const currenText = document.querySelector("#current");
 
 const calculator = new Calculator(previousText, currenText);
 
-buttons.addEventListener("click", (e) => {
-  calculator.addNumberFunc(buttons.innerText);
-  // if (e.target.matches("button")) {
-  //   const button = e.target;
-  //   const action = button.dataset.action;
-  //   const content = button.textContent;
-  //   const displayed = answerBox.textContent;
-  //   if (!action) {
-  //     if (displayed === "0") {
-  //       answerBox.textContent = content;
-  //     } else {
-  //       answerBox.textContent = displayed + content;
-  //     }
-  //   }
-  // }
+Array.from(numbers).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    calculator.addNumberFunc(button.innerText);
+    console.log(button.innerText);
+    // if (e.target.matches("button")) {
+    //   const button = e.target;
+    //   const action = button.dataset.action;
+    //   const content = button.textContent;
+    //   const displayed = answerBox.textContent;
+    //   if (!action) {
+    //     if (displayed === "0") {
+    //       answerBox.textContent = content;
+    //     } else {
+    //       answerBox.textContent = displayed + content;
+    //     }
+    //   }
+    // }
+  });
 });
