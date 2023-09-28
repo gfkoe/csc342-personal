@@ -56,4 +56,37 @@ Array.from(numbers).forEach((button) => {
     //   }
     // }
   });
+
+  button.addEventListener("keydown", (e) => {
+    if (e.isComposing || e.keyCode === 49) {
+      console.log(1);
+    }
+    if (e.isComposing || e.keyCode === 50) {
+      console.log(2);
+    }
+    if (e.isComposing || e.keyCode === 51) {
+      console.log(3);
+    }
+    if (e.isComposing || e.keyCode === 52) {
+      console.log(4);
+    }
+    if (e.isComposing || e.keyCode === 53) {
+      console.log(5);
+    }
+    if (e.isComposing || e.keyCode === 54) {
+      console.log(6);
+    }
+    if (e.isComposing || e.keyCode === 55) {
+      console.log(7);
+    }
+    if (e.isComposing || e.keyCode === 56) {
+      console.log(8);
+    }
+    if (e.isComposing || e.keyCode === 57) {
+      console.log(9);
+    }
+    if (e.isComposing || e.keyCode === 48) {
+      console.log(0);
+    }
+  });
 });
