@@ -1,18 +1,17 @@
 console.clear();
 
 class Calculator {
-  constructor(previousText, currenText) {
+  constructor(previousText, currentText) {
     this.previousText = previousText;
-    this.currenText = currenText;
-    this.clearFunc();
+    this.currentText = currentText;
+    this.clear();
   }
-  clearFunc() {
-    this.currenText = "0";
+  clear() {
+    this.currentText = "0";
     this.previousText = "";
     this.operation = undefined;
   }
   deleteFunc() {}
-
   addNumberFunc(number) {}
   chooseOperation(operation) {}
   calculate() {}
@@ -31,14 +30,18 @@ const operators = document.getElementsByClassName("operator");
 const equals = document.getElementById("equals");
 const clearHistory = document.getElementById("clear-history");
 const previousText = document.querySelector("#previous");
-const currenText = document.querySelector("#current");
+const currentText = document.querySelector("#current");
 
-const calculator = new Calculator(previousText, currenText);
+const calculator = new Calculator(previousText, currentText);
+
+clear.addEventListener("click", (e) => {
+  calculator.clear();
+});
 
 Array.from(numbers).forEach((button) => {
   button.addEventListener("click", (e) => {
-    calculator.addNumberFunc(button.innerText);
-    console.log(button.innerText);
+    calculator.addNumberFunc(button.innerHTML);
+    console.log(button.innerHTML);
     // if (e.target.matches("button")) {
     //   const button = e.target;
     //   const action = button.dataset.action;
