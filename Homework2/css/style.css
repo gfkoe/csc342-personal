@@ -28,6 +28,7 @@
   word-wrap: break-word;
   word-break: break-all;
   justify-content: space-around;
+  background-color: #eee;
 }
 #answer:hover {
   border: 2px solid #bbb;
@@ -41,8 +42,14 @@
   grid-column: span 3;
   border: 2px solid #eee;
   border-radius: 1px;
-  font-size: 2rem;
-  text-align: right;
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  word-wrap: break-word;
+  word-break: break-all;
+  justify-content: flex-start;
+  background-color: #eee;
 }
 #history:hover {
   border: 2px solid #bbb;

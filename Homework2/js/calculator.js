@@ -1,5 +1,6 @@
 console.clear();
-
+let historyVal = "";
+let history = document.getElementById("history");
 class Calculator {
   constructor(previousText, currentText) {
     this.previousText = previousText;
@@ -7,22 +8,74 @@ class Calculator {
     this.clear();
   }
   clear() {
-    this.currentText = "0";
-    this.previousText = "";
+    this.current = "";
+    this.previous = "";
     this.operation = undefined;
   }
-  deleteFunc() {}
-  addNumberFunc(number) {}
-  chooseOperation(operation) {}
-  calculate() {}
-  displayAnswer() {}
+
+  addNumber(number) {
+    if (number === "." && this.current.includes(".")) {
+      return;
+    }
+    this.current = this.current + number;
+  }
+  chooseOperation(operation) {
+    this.operation = operation;
+    this.previous = this.current;
+    this.updateHistory(this.current + "\n");
+    this.current = "";
+  }
+  calculate() {
+    let newAnswer = 0;
+    const prevNumber = parseFloat(this.previous);
+    const currentNumber = parseFloat(this.current);
+    switch (this.operation) {
+      case "+":
+        newAnswer = prevNumber + currentNumber;
+        this.updateHistory(newAnswer + "\n");
+        break;
+      case "-":
+        newAnswer = prevNumber - currentNumber;
+        this.updateHistory(newAnswer + "\n");
+        break;
+      case "x":
+        newAnswer = prevNumber * currentNumber;
+        this.updateHistory(newAnswer + "\n");
+        break;
+      case "/":
+        newAnswer = prevNumber / currentNumber;
+        this.updateHistory(newAnswer + "\n");
+        break;
+      default:
+        return;
+    }
+    this.current = newAnswer;
+    this.operation = undefined;
+    this.previous = "";
+  }
+  displayAnswer() {
+    this.currentText.innerHTML = this.current;
+    this.previousText.innerHTML = this.current;
+    this.updateHistory(this.current.innerHTML + "\n");
+  }
+
+  updateHistory(value) {
+    historyVal += value;
+    history.innerHTML = historyVal;
+    history.innerHTML += "\n";
+  }
+
+  clearHistory() {
+    historyVal = "";
+    history.innerHTML = "";
+  }
 }
 const calculatorBody = document.querySelector("#calculator_body");
 const buttons = calculatorBody.querySelectorAll("#buttons");
 const answerBox = document.querySelector("#answer");
 
-const answer = document.getElementById("answer");
-const history = document.getElementById("history");
+//const answer = document.getElementById("answer");
+
 const clear = document.getElementById("clear");
 const decimal = document.getElementById("decimal");
 const numbers = document.getElementsByClassName("number");
@@ -40,23 +93,39 @@ clear.addEventListener("click", (e) => {
 
 Array.from(numbers).forEach((button) => {
   button.addEventListener("click", (e) => {
-    calculator.addNumberFunc(button.innerHTML);
+    calculator.addNumber(button.innerHTML);
+    calculator.displayAnswer();
     console.log(button.innerHTML);
-    // if (e.target.matches("button")) {
-    //   const button = e.target;
-    //   const action = button.dataset.action;
-    //   const content = button.textContent;
-    //   const displayed = answerBox.textContent;
-    //   if (!action) {
-    //     if (displayed === "0") {
-    //       answerBox.textContent = content;
-    //     } else {
-    //       answerBox.textContent = displayed + content;
-    //     }
-    //   }
-    // }
   });
+});
 
+Array.from(operators).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    calculator.chooseOperation(button.innerHTML);
+    calculator.displayAnswer();
+    console.log(button.innerHTML);
+  });
+});
+
+decimal.addEventListener("click", (e) => {
+  calculator.addNumber(decimal.innerHTML);
+  calculator.displayAnswer();
+});
+
+clear.addEventListener("click", (e) => {
+  calculator.clear();
+  calculator.displayAnswer();
+});
+
+equals.addEventListener("click", (e) => {
+  calculator.calculate();
+  calculator.displayAnswer();
+});
+
+clearHistory.addEventListener("click", (e) => {
+  calculator.clearHistory();
+});
+Array.from(numbers).forEach((button) => {
   button.addEventListener("keydown", (e) => {
     if (e.isComposing || e.keyCode === 49) {
       console.log(1);
