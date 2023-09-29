@@ -15,20 +15,47 @@
 #buttons > button {
   font-size: 1rem;
   box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
+.number {
+  background-color: rgba(87, 81, 81, 0.678);
+}
+
+#decimal {
+  background-color: rgba(87, 81, 81, 0.678);
+}
+#clear {
+  background-color: rgba(255, 0, 0, 0.648);
+}
+#clear-history {
+  background-color: rgba(255, 0, 0, 0.648);
+}
+
+.operator {
+  background-color: orange;
+}
+#equals {
+  background-color: lightblue;
+}
+
+#previous {
+  visibility: hidden;
+}
 #answer {
   grid-column: span 4;
-  border: 2px solid #eee;
-  border-radius: 1px;
-  font-size: 1rem;
+  border-radius: 10px;
+  font-size: 1.25rem;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
   word-wrap: break-word;
   word-break: break-all;
   justify-content: space-around;
-  background-color: #eee;
+  background-color: rgba(53, 47, 47, 0.893);
+  color: white;
+  padding-right: 5px;
+  padding-bottom: 8px;
 }
 #answer:hover {
   border: 2px solid #bbb;
@@ -38,10 +65,10 @@
   grid-column: span 4;
 }
 #history {
+  background-color: rgba(53, 47, 47, 0.893);
   grid-row: span 5;
   grid-column: span 3;
-  border: 2px solid #eee;
-  border-radius: 1px;
+  border-radius: 10px;
   font-size: 1rem;
   display: flex;
   align-items: flex-start;
@@ -49,7 +76,9 @@
   word-wrap: break-word;
   word-break: break-all;
   justify-content: flex-start;
-  background-color: #eee;
+  padding-left: 5px;
+  padding-top: 5px;
+  color: white;
 }
 #history:hover {
   border: 2px solid #bbb;
@@ -57,6 +86,7 @@
 }
 
 #clear-history {
+  border-radius: 10px;
   grid-column: span 3;
   grid-column-end: -1;
 }
