@@ -123,7 +123,9 @@ equals.addEventListener("click", (e) => {
 });
 
 clearHistory.addEventListener("click", (e) => {
+  calculator.clear();
   calculator.clearHistory();
+  calculator.displayAnswer();
 });
 Array.from(numbers).forEach((button) => {
   button.addEventListener("keydown", (e) => {
