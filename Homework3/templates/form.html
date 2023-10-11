@@ -5,14 +5,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script defer src="../static/js/forms.js"></script>
   </head>
   <body>
-    <form action="form.html" method="post">
-      <div id="sender">
-        <input type="image" />
-      </div>
-      <div id="recipient"></div>
-      <div id="payment"></div>
-    </form>
+    <div class="container">
+      <form action="form.html" method="post">
+        <div id="sender">
+          <h1>Sender Details</h1>
+          <img
+            id="previewImage"
+            alt="Preview"
+            style="max-width: 200px; max-height: 200px"
+          />
+          <br />
+          <input type="file" id="imageInput" />
+
+          <br />
+          <br />
+          <label for="senderFirst">First name:</label>
+          <input type="text" name="senderFirst" id="senderFirst" />
+          <label for="senderLast">Last name:</label>
+          <input type="text" name="senderLast" id="senderLast" />
+        </div>
+        <div id="recipient">
+          <h1>Recipient Details</h1>
+          <label for="recipientFirst">First name:</label>
+          <input type="text" name="recipientFirst" id="recipientFirst" />
+          <label for="recipientLast">Last name:</label>
+          <input type="text" name="recipientLast" id="recipientLast" />
+          <br />
+          <input type="text" name="" id="" />
+        </div>
+        <div id="payment"></div>
+      </form>
+    </div>
   </body>
 </html>
