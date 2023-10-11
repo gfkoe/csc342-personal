@@ -36,6 +36,30 @@
           <br />
           <label for="message">Message</label>
           <input type="text" name="message" id="message" />
+          <br />
+          <p>Notify recipient:</p>
+          <input type="radio" id="emailButton" name="notify" value="Email" />
+          <label for="emailButton">Email</label>
+          <input type="radio" id="sms" name="notify" value="SMS" />
+          <label for="sms">SMS</label>
+          <input
+            type="radio"
+            id="do_not_notify"
+            name="notify"
+            value="Do not notify"
+          />
+          <label for="do_not_notify">Do not notify</label>
+          <br />
+          <br />
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" />
+          <label for="phone">Phone Number:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+          />
         </div>
         <div id="payment"></div>
       </form>
