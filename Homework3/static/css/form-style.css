@@ -1,35 +1,25 @@
+body {
+  background-color: #7adc99;
+}
 .container {
   display: grid;
 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template:
+    "a a b b" 70%
+    "c c c c" 70%;
 
-  gap: 0px;
-  height: 100%;
+  grid-gap: 10%;
+  justify-content: center;
 }
 
 #sender {
-  background-color: #7adc99;
-  grid-row-start: 1;
-  grid-column-start: 1;
-
-  grid-row-end: 9;
-  grid-column-end: 7;
+  grid-area: a;
 }
 #recipient {
-  background-color: #decf55;
-  grid-row-start: 1;
-  grid-column-start: 7;
-
-  grid-row-end: 9;
-  grid-column-end: 13;
+  grid-area: b;
 }
 
 #payment {
-  background-color: #757de9;
-  grid-row-start: 9;
-  grid-column-start: 1;
-
-  grid-row-end: 16;
-  grid-column-end: 13;
+  grid-area: c;
+  text-align: center;
 }
