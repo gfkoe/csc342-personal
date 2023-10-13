@@ -18,7 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const senderLast = document.querySelector("#sendLastInput");
   const recipientFirst = document.querySelector("#recFirstInput");
   const recipientLast = document.querySelector("#recLastInput");
-  const message = document.querySelector("");
+  const messageLength = document.getElementById("message").value.length;
+  const cardNumber = document.querySelector("#cardNumberInput");
+  const currentDate = new Date();
+  const creditDate = document.querySelector("#expiration");
   form.addEventListener("submit", (e) => {
     if (senderFirst == "") {
       e.preventDefault();
@@ -30,6 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
     }
     if (recipientLast == "") {
+      e.preventDefault();
+    }
+    if (creditDate < currentDate) {
+      e.preventDefault();
+    }
+    if (creditDate == "") {
+      e.preventDefault();
+    }
+    if (cardNumber == "") {
       e.preventDefault();
     }
   });
