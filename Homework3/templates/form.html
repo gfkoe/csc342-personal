@@ -22,19 +22,21 @@
 
           <br />
           <br />
-          <label for="senderFirst">First name:</label>
-          <label for="senderLast">Last name:</label>
+          <label id="senderFirst" for="senderFirst">First name:</label>
+          <label id="senderLast" for="senderLast">Last name:</label>
           <br />
-          <input type="text" name="senderFirst" id="senderFirst" />
-          <input type="text" name="senderLast" id="senderLast" />
+          <input type="text" name="senderFirst" id="sendFirstInput" />
+          <input type="text" name="senderLast" id="sendLastInput" />
         </div>
+        <div class="vl"></div>
         <div id="recipient">
           <h1>Recipient Details</h1>
-          <label for="recipientFirst">First name:</label>
-          <label for="recipientLast">Last name:</label>
+          <label id="recipientFirst" for="recipientFirst">First name:</label>
+          <label id="recipientLast" for="recipientLast">Last name:</label>
           <br />
-          <input type="text" name="recipientFirst" id="recipientFirst" />
-          <input type="text" name="recipientLast" id="recipientLast" />
+          <input type="text" name="recipientFirst" id="recFirstInput" />
+          <input type="text" name="recipientLast" id="reclastInput" />
+          <br />
           <br />
           <label for="message">Message:</label>
           <br />
@@ -68,16 +70,16 @@
         </div>
         <div id="payment">
           <h1>Payment Details</h1>
-          <label for="cardType">Card Type: </label>
-          <label for="cardNumber">Card Number:</label>
+          <label id="cardType" for="cardType">Card Type: </label>
+          <label id="cardNumber" for="cardNumber">Card Number:</label>
           <br />
-          <select name="cardType" id="cardType">
+          <select name="cardType">
             <option value="visa">Visa</option>
             <option value="amex">American Express</option>
             <option value="mastercard">Mastercard</option>
           </select>
 
-          <input type="text" name="cardNumber" id="cardNumber" />
+          <input type="text" name="cardNumber" />
           <br />
           <label for="expiration">Expiration:</label>
           <label for="ccv">CCV:</label>
@@ -87,8 +89,10 @@
           <input type="password" name="ccv" id="ccv" />
           <input type="number" name="amount" id="amount" />
           <br />
+          <br />
           <input type="checkbox" name="agreement" id="agreement" />
           <label for="agreement">I agree to the Terms and Conditions</label>
+          <br />
           <br />
           <input type="submit" name="submit" id="submit" />
         </div>

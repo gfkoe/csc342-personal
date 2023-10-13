@@ -1,25 +1,56 @@
 body {
-  background-color: #7adc99;
+  background-color: lightblue;
 }
 .container {
   display: grid;
 
   grid-template:
-    "a a b b" 70%
-    "c c c c" 70%;
+    "a a c b b" 70%
+    "d d d d d" 70%;
 
-  grid-gap: 10%;
+  grid-gap: 3%;
   justify-content: center;
 }
-
+.vl {
+  grid-area: c;
+  border-left: 2px solid black;
+  height: 500px;
+}
 #sender {
   grid-area: a;
+}
+#previewImage {
+  width: 200px;
+  height: 200px;
+}
+#senderLast {
+  padding-left: 29%;
 }
 #recipient {
   grid-area: b;
 }
+#recipientLast {
+  padding-left: 29%;
+}
 
 #payment {
-  grid-area: c;
-  text-align: center;
+  padding-left: 30%;
+  grid-area: d;
+}
+
+#cardType {
+}
+#cardNumber {
+  padding-left: 10%;
+}
+#submit {
+  width: 70%;
+  height: 50px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #7adc99;
+  color: black;
+}
+#submit:hover {
+  background-color: lightgrey;
 }
