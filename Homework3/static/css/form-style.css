@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  gap: 0px;
+  height: 100%;
+}
+
+#sender {
+  background-color: #7adc99;
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 9;
+  grid-column-end: 7;
+}
+#recipient {
+  background-color: #decf55;
+  grid-row-start: 1;
+  grid-column-start: 7;
+
+  grid-row-end: 9;
+  grid-column-end: 13;
+}
+
+#payment {
+  background-color: #757de9;
+  grid-row-start: 9;
+  grid-column-start: 1;
+
+  grid-row-end: 16;
+  grid-column-end: 13;
+}
