@@ -29,12 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const notifyCheck = document.getElementById("do_not_notify");
   const ccv = document.getElementById("ccv");
   form.addEventListener("submit", (e) => {
-    const slected = document.getElementById("imageInput").files[0];
-    let allowed = ["image/jpeg", "image/png", "image/jpg"];
-    if (allowed.includes(selectedFile.type)) {
-      alert("invalid file type. file must be a jpg/jpeg or png");
-      e.preventDefault();
-    }
     if (senderFirst == "") {
       e.preventDefault();
     }
