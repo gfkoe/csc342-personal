@@ -46,6 +46,12 @@ body {
 #email {
   padding-left: 1%;
 }
+#ccvName {
+  padding-left: 8%;
+}
+#amountName {
+  padding-left: 26%;
+}
 #phone {
   padding-left: 35%;
 }
@@ -55,7 +61,7 @@ body {
   grid-area: d;
 }
 #cardType {
-  padding-left: 1%;
+  padding-left: 0%;
 }
 #cardNumber {
   padding-left: 12%;
