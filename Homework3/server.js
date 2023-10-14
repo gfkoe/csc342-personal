@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   res.sendFile(html_path + "form.html");
 });
 
-const upload = multer({ "static/uploads/" });
+const upload = multer({ dest: "static/uploads/" });
 //
 app.post("/formdata", upload.single("imageInput"), (req, res) => {
   console.log(req.body);
