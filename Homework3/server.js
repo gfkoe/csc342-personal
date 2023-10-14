@@ -12,16 +12,7 @@ app.get("/", (req, res) => {
   res.sendFile(html_path + "form.html");
 });
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "static/uploads/");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
-});
-
-const upload = multer({ storage: storage });
+const upload = multer({ "static/uploads/" });
 //
 app.post("/formdata", upload.single("imageInput"), (req, res) => {
   console.log(req.body);
