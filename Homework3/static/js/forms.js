@@ -18,10 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const senderLast = document.querySelector("#sendLastInput");
   const recipientFirst = document.querySelector("#recFirstInput");
   const recipientLast = document.querySelector("#recLastInput");
-  const messageLength = document.getElementById("message").value.length;
+  const message = document.getElementById("message");
   const cardNumber = document.querySelector("#cardNumberInput");
   const currentDate = new Date();
   const creditDate = document.querySelector("#expiration");
+  const emailCheck = document.getElementById("emailButton");
+  const emailInput = document.getElementById("emailInput");
+  const smsCheck = document.getElementById("sms");
+  const smsInput = document.getElementById("phone");
+  const notifyCheck = document.getElementById("do_not_notify");
+  const ccv = document.getElementById("ccv");
   form.addEventListener("submit", (e) => {
     if (senderFirst == "") {
       e.preventDefault();
@@ -42,6 +48,26 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
     }
     if (cardNumber == "") {
+      e.preventDefault();
+    }
+    if (emailCheck.checked) {
+      if (emailInput === "" || emailInput === null) {
+        alert("email is required");
+        e.preventDefault();
+      }
+    }
+    if (smsCheck.checked) {
+      if (smsInput === "" || smsInput === null) {
+        alert("sms is required");
+        e.preventDefault();
+      }
+    }
+    if (ccv.value.length < 3 || ccv.value.length > 4) {
+      alert("ccv must be 3 or 4 digits");
+      e.preventDefault();
+    }
+    if (message.value.length < 10) {
+      alert("message must be at least 10 characters long");
       e.preventDefault();
     }
   });

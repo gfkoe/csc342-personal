@@ -1,11 +1,7 @@
 FROM node:lts
 WORKDIR /app
 
-COPY ./package*.json .
+COPY ./* /app
 RUN npm install
-
-COPY . .
-
-ENV PORT 80
 
 ENTRYPOINT [ "npm", "start" ]

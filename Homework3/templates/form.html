@@ -9,36 +9,43 @@
   </head>
   <body>
     <div>
-      <form class="container" action="formdata" method="post">
+      <form
+        class="container"
+        action="formdata"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <div id="sender">
           <h1>Sender Details</h1>
           <img
             id="previewImage"
             alt="Image Preview"
-            style="max-width: 400px; max-height: 400px" />
+            style="max-width: 400px; max-height: 400px"
+          />
           <br />
-          <input type="file" id="imageInput" required />
+          <input name="imageInput" type="file" id="imageInput" required />
 
           <br />
           <br />
-          <label id="senderFirst" for="senderFirst">First name:</label>
-          <label id="senderLast" for="senderLast">Last name:</label>
+          <label id="senderFirst" for="sendFirstInput">First name:</label>
+          <label id="senderLast" for="sendLastInput">Last name:</label>
           <br />
-          <input type="text" name="senderFirst" id="sendFirstInput" required />
-          <input type="text" name="senderLast" id="sendLastInput" required />
+          <input
+            type="text"
+            name="sendFirstInput"
+            id="sendFirstInput"
+            required
+          />
+          <input type="text" name="sendLastInput" id="sendLastInput" required />
         </div>
         <div class="vl"></div>
         <div id="recipient">
           <h1>Recipient Details</h1>
-          <label id="recipientFirst" for="recipientFirst">First name:</label>
-          <label id="recipientLast" for="recipientLast">Last name:</label>
+          <label id="recipientFirst" for="recFirstInput">First name:</label>
+          <label id="recipientLast" for="recLastInput">Last name:</label>
           <br />
-          <input
-            type="text"
-            name="recipientFirst"
-            id="recFirstInput"
-            required />
-          <input type="text" name="recipientLast" id="recLastInput" required />
+          <input type="text" name="recFirstInput" id="recFirstInput" required />
+          <input type="text" name="recLastInput" id="recLastInput" required />
           <br />
           <br />
           <label for="message">Message:</label>
@@ -46,34 +53,41 @@
           <input type="text" name="message" id="message" minlength="10" />
           <br />
           <p>Notify recipient:</p>
-          <input type="radio" id="emailButton" name="notify" value="Email" />
+          <input
+            type="checkbox"
+            id="emailButton"
+            name="emailButton"
+            value="Email"
+          />
           <label for="emailButton">Email</label>
-          <input type="radio" id="sms" name="notify" value="SMS" />
+          <input type="checkbox" id="sms" name="sms" value="SMS" />
           <label for="sms">SMS</label>
           <input
-            type="radio"
+            type="checkbox"
             id="do_not_notify"
-            name="notify"
-            value="Do not notify" />
+            name="do_not_notify"
+            value="Do not notify"
+          />
           <label for="do_not_notify">Do not notify</label>
           <br />
           <br />
-          <label for="email" id="email">Email:</label>
-          <label for="phone" id="phone">Phone Number:</label>
+          <label for="emailInput" id="email">Email:</label>
+          <label for="phoneInput" id="phone">Phone Number:</label>
           <br />
-          <input type="email" name="email" id="emailInput" />
+          <input type="email" name="emailInput" id="emailInput" />
 
           <input
             type="tel"
             id="phoneInput"
-            name="phone"
+            name="phoneInput"
             placeholder="123-456-7890"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+            pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+          />
         </div>
         <div id="payment">
           <h1>Payment Details</h1>
           <label id="cardType" for="cardType">Card Type: </label>
-          <label id="cardNumber" for="cardNumber">Card Number:</label>
+          <label id="cardNumber" for="cardNumberInput">Card Number:</label>
           <br />
           <select name="cardType">
             <option value="visa">Visa</option>
@@ -87,13 +101,20 @@
             name="cardNumber"
             pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
             placeholder="XXXX-XXXX-XXXX-XXXX"
-            required />
+            required
+          />
           <br />
           <label for="expiration">Expiration:</label>
-          <label for="ccv">CCV:</label>
-          <label for="amount">Amount ($):</label>
+          <label for="ccv" id="ccvName">CCV:</label>
+          <label for="amount" id="amountName">Amount ($):</label>
           <br />
-          <input type="date" name="expiration" id="expiration" required />
+          <input
+            type="date"
+            name="expiration"
+            id="expiration"
+            min="2023-10-14"
+            required
+          />
           <input type="password" name="ccv" id="ccv" required />
           <input type="number" name="amount" id="amount" required />
           <br />
