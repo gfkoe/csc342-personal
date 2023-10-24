@@ -30,5 +30,5 @@ services:
     build: ./Homework4
     restart: unless-stopped
     volumes:
-      - ./Homework3/static:/app/static
-      - ./Homework3/templates:/app/templates
+      - ./Homework4/static:/app/static
+      - ./Homework4/templates:/app/templates
