@@ -3,15 +3,15 @@ import api from "./APIClient.js";
 addEventListener("DOMContentLoaded", (e) => {
   let userBtn = document.getElementById("userbutton");
   userBtn.addEventListener("click", (e) => {
-    fetch("/api/user", {
+    fetch("/api/users/current", {
       method: "GET",
     })
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("response was not ok");
-        }
-        return res.text();
-      })
+      // .then((res) => {
+      //   if (!res.ok) {
+      //     throw new Error("response was not ok");
+      //   }
+      //   return res.text();
+      // })
       .then((data) => {
         try {
           const userDataDiv = document.getElementById("userData");

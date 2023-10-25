@@ -1,22 +1,40 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
+
 const apiRouter = express.Router();
 
 let follows = require("../data/follows.json");
 let howls = require("../data/howls.json");
-let users = require("../data/users.json");
-let authenticateduser = "";
+
+apiRouter.use(cookieParser());
 apiRouter.use(express.json());
-apiRouter.use((req, res, next) => {
-  const { username } = req.body;
-  authenticateduser = users.find((user) => user.username === username);
-  next();
-});
-apiRouter.post("/login", (req, res) => {
-  if (authenticateduser) {
-    // res.json(authenticateduser);
-    res.json({ message: "Authentication successful", user: req.user });
+
+const UserDAO = require("./UserDAO");
+
+const {
+  SessionMiddleware,
+  initializeSession,
+  removeSession,
+} = require("../middleware/SessionCookieMiddleware");
+
+apiRouter.post("/users/login", (req, res) => {
+  if (req.body.username) {
+    UserDAO.getUserByCredentials(req.body.username)
+      .then((user) => {
+        let result = {
+          user: user,
+        };
+
+        initializeSession(req, res, user);
+
+        res.json(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(err.code).json({ error: err.message });
+      });
   } else {
-    res.status(401).json({ message: "Authentication failed" });
+    res.status(401).json({ error: "Not authenticated" });
   }
 });
 
@@ -30,12 +48,8 @@ apiRouter.post("/login", (req, res) => {
 // });
 
 //Getting the currently "authenticated" user's object.
-apiRouter.get("/user", (req, res) => {
-  if (authenticateduser) {
-    res.json(getFilteredUser(authenticateduser)); // Send the authenticated user object
-  } else {
-    res.status(404).json({ error: "Not Found" }); // Send a 404 response if user not found
-  }
+apiRouter.get("/users/current", SessionMiddleware, (req, res) => {
+  res.json(req.session.user);
 });
 
 //Creating a new howl.
