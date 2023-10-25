@@ -2,22 +2,19 @@ const API_BASE = "/api";
 
 class HTTPClient {
   static get(url) {
-    return fetch(`${API_BASE}${url}`)
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .catch((err) => {
-        console.log(err);
-        throw err;
-      });
-  }
-
-  static post(url, data) {
-    // TODO: Implement
+    return fetch(url).then((res) => {
+      if (!res.ok) {
+        throw new Error("error in request");
+      }
+      return res.json();
+    });
   }
 }
 
-export default {};
+export default {
+  getCurrentUser: (username) => {
+    return HTTPClient.get(`/api/${username}`).then((user) => {
+      return user;
+    });
+  },
+};

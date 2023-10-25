@@ -5,7 +5,7 @@ let follows = require("../data/follows.json");
 let howls = require("../data/howls.json");
 let users = require("../data/users.json");
 apiRouter.use(express.json());
-
+let authenticateduser = null;
 // apiRouter.use((req, res, next) => {
 //   const { username } = req.body;
 //   req.user = users.find((user) => user.username === username);
@@ -19,8 +19,9 @@ apiRouter.use(express.json());
 //authenticate
 apiRouter.post("/login", (req, res) => {
   const { username } = req.body;
-  const authenticateduser = users.find(user => user.username === username);
+  authenticateduser = users.find((user) => user.username === username);
   if (authenticateduser) {
+    // res.json(authenticateduser);
     res.json({ message: "Authentication successful", user: req.user });
   } else {
     res.status(401).json({ message: "Authentication failed" });
@@ -29,7 +30,7 @@ apiRouter.post("/login", (req, res) => {
 
 //Getting the currently "authenticated" user's object.
 apiRouter.get("/user", (req, res) => {
-  res.json(req.user);
+  res.json(authenticateduser.username);
 });
 
 //Creating a new howl.

@@ -12,10 +12,15 @@ addEventListener("DOMContentLoaded", (e) => {
       },
       body: JSON.stringify({ username }),
     })
+      // .then((data) => data.json())
       .then((res) => {
         if (res.ok) {
+          // sessionStorage.setItem("user", `${res.id}`);
+          // sessionStorage.setItem("username", `${res.username}`);
           window.location.href = "/home";
+          // return res;
         } else {
+          alert("invalid username");
           console.error("Authentication failed");
         }
       })
