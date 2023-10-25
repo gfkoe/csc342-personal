@@ -32,3 +32,4 @@ services:
     volumes:
       - ./Homework4/static:/app/static
       - ./Homework4/templates:/app/templates
+      - ./Homework4/src:/app/src
