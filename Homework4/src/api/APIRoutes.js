@@ -18,8 +18,11 @@ apiRouter.use((req, res, next) => {
 
 //authenticate
 apiRouter.post("/login", (req, res) => {
-  console.log("login request: ", req.body);
-  res.status(200).json({ authenticated: true });
+  if (req.user) {
+    res.json({ message: "Authentication successful", user: req.user });
+  } else {
+    res.status(401).json({ message: "Authentication failed" });
+  }
 });
 
 //Getting the currently "authenticated" user's object.
@@ -55,15 +58,17 @@ apiRouter.get("/users/:username", (req, res) => {
 
 //Getting the list of users followed by a specific user
 apiRouter.get("/users/:username/following", (req, res) => {
-  const username = req.params.username;
-
-  res.json({});
+  let username = req.params.username;
+  const usernameId = username.id;
+  let matchedFollows = follows[usernameId].following;
+  res.json({ matchedFollows });
 });
 
 //Following a user
 apiRouter.post("/users/:username/follow", (req, res) => {
-  const username = req.params.username;
-
+  let username = req.params.username;
+  let usernameId = username.id;
+  follows[usernameId];
   res.json({});
 });
 
