@@ -4,22 +4,14 @@ const apiRouter = express.Router();
 let follows = require("../data/follows.json");
 let howls = require("../data/howls.json");
 let users = require("../data/users.json");
+let authenticateduser = "";
 apiRouter.use(express.json());
-let authenticateduser = null;
-// apiRouter.use((req, res, next) => {
-//   const { username } = req.body;
-//   req.user = users.find((user) => user.username === username);
-//   next();
-// });
-
-// apiRouter.get("/follows", (req, res) => {
-//   res.json(follows);
-// });
-
-//authenticate
-apiRouter.post("/login", (req, res) => {
+apiRouter.use((req, res, next) => {
   const { username } = req.body;
   authenticateduser = users.find((user) => user.username === username);
+  next();
+});
+apiRouter.post("/login", (req, res) => {
   if (authenticateduser) {
     // res.json(authenticateduser);
     res.json({ message: "Authentication successful", user: req.user });
@@ -28,9 +20,22 @@ apiRouter.post("/login", (req, res) => {
   }
 });
 
+// //authenticate
+// apiRouter.post("/login", (req, res) => {
+//   if (authenticateduser) {
+//     res.json({ message: "Authentication successful", user: authenticateduser });
+//   } else {
+//     res.status(401).json({ message: "Authentication failed" });
+//   }
+// });
+
 //Getting the currently "authenticated" user's object.
 apiRouter.get("/user", (req, res) => {
-  res.json(authenticateduser.username);
+  if (authenticateduser) {
+    res.json(getFilteredUser(authenticateduser)); // Send the authenticated user object
+  } else {
+    res.status(404).json({ error: "Not Found" }); // Send a 404 response if user not found
+  }
 });
 
 //Creating a new howl.
@@ -101,5 +106,15 @@ apiRouter.get("/howls", (req, res) => {
 apiRouter.get("/users", (req, res) => {
   res.json(users);
 });
+
+function getFilteredUser(user) {
+  return {
+    id: user.id,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    username: user.username,
+    avatar: user.avatar,
+  };
+}
 
 module.exports = apiRouter;
