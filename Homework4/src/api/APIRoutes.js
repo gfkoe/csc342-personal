@@ -6,11 +6,11 @@ let howls = require("../data/howls.json");
 let users = require("../data/users.json");
 apiRouter.use(express.json());
 
-apiRouter.use((req, res, next) => {
-  const { username } = req.body;
-  req.user = users.find((user) => user.username === username);
-  next();
-});
+// apiRouter.use((req, res, next) => {
+//   const { username } = req.body;
+//   req.user = users.find((user) => user.username === username);
+//   next();
+// });
 
 // apiRouter.get("/follows", (req, res) => {
 //   res.json(follows);
@@ -18,7 +18,9 @@ apiRouter.use((req, res, next) => {
 
 //authenticate
 apiRouter.post("/login", (req, res) => {
-  if (req.user) {
+  const { username } = req.body;
+  const authenticateduser = users.find(user => user.username === username);
+  if (authenticateduser) {
     res.json({ message: "Authentication successful", user: req.user });
   } else {
     res.status(401).json({ message: "Authentication failed" });
