@@ -38,17 +38,17 @@ api.getHowlsFromUserFollowing().then((howls) => {
 });
 
 function updateHowls(howls) {
-  resetHowls();
-  fillHowlHTMLs();
+  resetHowls(howls);
+  fillHowlsHTML(howls);
 }
 function resetHowls(howls) {
   const howlList = document.getElementById("howl_list");
   howlList.innerHTML = "";
 }
-function fillHowlsHTML() {
-  const howls = document.getElementById("howl_list");
+function fillHowlsHTML(howls) {
+  const howlList = document.getElementById("howl_list");
   howls.forEach((howl) => {
-    howls.append(createHowlHTML(howl));
+    howlList.append(createHowlHTML(howl));
   });
 }
 

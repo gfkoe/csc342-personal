@@ -43,7 +43,7 @@ apiRouter.get("/users/current", SessionMiddleware, (req, res) => {
 });
 
 //Creating a new howl.
-apiRouter.post("/users/current/howls/create", (req, res) => {
+apiRouter.post("/users/current/howls/create", SessionMiddleware, (req, res) => {
   const user = req.session.user;
   const userId = req.session.user.id;
 
@@ -69,27 +69,31 @@ apiRouter.get("/users/:username/howls", (req, res) => {
 });
 
 //Getting howls posted by all users followed by the "authenticated" user
-apiRouter.get("/users/current/following/howls", (req, res) => {
-  const user = req.session.user;
-  const userId = req.session.user.id;
-  const id = req.params.userId;
+apiRouter.get(
+  "/users/current/following/howls",
+  SessionMiddleware,
+  (req, res) => {
+    const user = req.session.user;
+    const userId = user.id;
+    const id = req.params.userId;
 
-  const following = follows[userId].following;
-  const followingHowls = [];
-  for (const followingUserId of following) {
-    const howlsFromUser = howls.filter(
-      (howl) => howl.userId === followingUserId
-    );
-    followingHowls.push(howlsFromUser);
+    const following = follows[userId].following;
+    const followingHowls = [];
+    for (const followingUserId of following) {
+      const howlsFromUser = howls.filter(
+        (howl) => howl.userId === followingUserId
+      );
+      followingHowls.push(howlsFromUser);
+    }
+
+    followingHowls.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+
+    res.json({ followingHowls });
   }
-
-  followingHowls.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
-
-  res.json({ followingHowls });
-});
+);
 
 //Getting a specific user's object
-apiRouter.get("/users/:username", (req, res) => {
+apiRouter.get("/users/:username", SessionMiddleware, (req, res) => {
   const username = req.params.username;
   const usernameId = username.id;
   UserDAO.getUserByCredentials(username)
@@ -106,7 +110,7 @@ apiRouter.get("/users/:username", (req, res) => {
 });
 
 //Getting the list of users followed by a specific user
-apiRouter.get("/users/:username/following", (req, res) => {
+apiRouter.get("/users/:username/following", SessionMiddleware, (req, res) => {
   const username = req.params.username;
   const usernameId = username.id;
   let matchedFollows = follows[usernameId].following;
@@ -114,7 +118,7 @@ apiRouter.get("/users/:username/following", (req, res) => {
 });
 
 //Following a user
-apiRouter.post("/users/:username/follow", (req, res) => {
+apiRouter.post("/users/:username/follow", SessionMiddleware, (req, res) => {
   const username = req.params.username;
   const usernameId = username.id;
   const userId = req.session.user.id;
@@ -123,7 +127,7 @@ apiRouter.post("/users/:username/follow", (req, res) => {
 });
 
 //Unfollowing a user
-apiRouter.post("/users/:username/unfollow", (req, res) => {
+apiRouter.post("/users/:username/unfollow", SessionMiddleware, (req, res) => {
   const username = req.params.username;
   const usernameId = username.id;
   const userId = req.session.user.id;
