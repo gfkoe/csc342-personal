@@ -10,7 +10,6 @@ apiRouter.use(cookieParser());
 apiRouter.use(express.json());
 
 const UserDAO = require("./UserDAO");
-
 const {
   SessionMiddleware,
   initializeSession,
@@ -81,7 +80,7 @@ apiRouter.get("/users/current/following/howls", (req, res) => {
     const howlsFromUser = howls.filter(
       (howl) => howl.userId === followingUserId
     );
-    followingHowls.push(...howlsFromUser);
+    followingHowls.push(howlsFromUser);
   }
 
   followingHowls.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
