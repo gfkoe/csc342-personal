@@ -15,6 +15,18 @@ module.exports = {
       }
     });
   },
+
+  getUserById: (userId) => {
+    return new Promise((resolve, reject) => {
+      const user = users.find((user) => user.id == userId);
+      if (user) {
+        console.log(user);
+        resolve(getFilteredUser(user));
+      } else {
+        reject({ code: 401, message: "No such user" });
+      }
+    });
+  },
 };
 
 function getFilteredUser(user) {

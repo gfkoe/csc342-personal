@@ -63,7 +63,7 @@ apiRouter.post("/users/current/howls/create", SessionMiddleware, (req, res) => {
 //Getting howls posted by a specific user
 apiRouter.get("/users/:userId/howls", (req, res) => {
   const id = req.params.userId;
-  // const usernameId = username.id;
+
   const howlsFromUser = howls.filter((howl) => howl.userId === id);
   res.json({ howlsFromUser });
 });
@@ -100,15 +100,15 @@ apiRouter.get(
 );
 
 //Getting a specific user's object
-apiRouter.get("/users/:username", SessionMiddleware, (req, res) => {
-  const username = req.params.username;
-  const usernameId = username.id;
-  UserDAO.getUserByCredentials(username)
+apiRouter.get("/users/:userId", SessionMiddleware, (req, res) => {
+  const id = req.params.userId;
+
+  UserDAO.getUserById(id)
     .then((user) => {
       let result = {
         user: user,
       };
-      res.json({ user });
+      res.json(user);
     })
     .catch((err) => {
       console.log(err);
@@ -117,26 +117,25 @@ apiRouter.get("/users/:username", SessionMiddleware, (req, res) => {
 });
 
 //Getting the list of users followed by a specific user
-apiRouter.get("/users/:username/following", SessionMiddleware, (req, res) => {
-  const username = req.params.username;
-  const usernameId = username.id;
+apiRouter.get("/users/:userId/following", SessionMiddleware, (req, res) => {
+  const usernameId = req.params.userId;
   let matchedFollows = follows[usernameId].following;
   res.json({ matchedFollows });
 });
 
 //Following a user
-apiRouter.post("/users/:username/follow", SessionMiddleware, (req, res) => {
-  const username = req.params.username;
-  const usernameId = username.id;
+apiRouter.post("/users/:userId/follow", SessionMiddleware, (req, res) => {
+  const usernameId = req.params.userId;
+  // const usernameId = username.id;
   const userId = req.session.user.id;
   follows[userId].following.push(usernameId);
   res.send("Now following user: " + usernameId);
 });
 
 //Unfollowing a user
-apiRouter.post("/users/:username/unfollow", SessionMiddleware, (req, res) => {
-  const username = req.params.username;
-  const usernameId = username.id;
+apiRouter.post("/users/:userId/unfollow", SessionMiddleware, (req, res) => {
+  const username = req.params.userId;
+  // const usernameId = username.id;
   const userId = req.session.user.id;
   follows[userId].following = follows[userId].following.filter(
     (id) => id !== usernameId

@@ -10,8 +10,8 @@ export default {
     return HTTPClient.post(API_BASE + "/users/current/howls/create");
   },
 
-  getHowlsByUser: (username) => {
-    return HTTPClient.get(API_BASE + "/users/" + username + "/howls");
+  getHowlsByUser: (userId) => {
+    return HTTPClient.get(API_BASE + `/users/${userId}` + "/howls");
   },
 
   getHowls: () => {
@@ -22,20 +22,20 @@ export default {
     return HTTPClient.get(API_BASE + "/users/current/following/howls");
   },
 
-  getUser: (username) => {
-    return HTTPClient.get(API_BASE + "/users/" + username);
+  getUser: (userId) => {
+    return HTTPClient.get(API_BASE + `/users/${userId}`);
   },
 
-  getFollowing: (username) => {
-    return HTTPClient.get(API_BASE + "/users/" + username + "/following");
+  getFollowing: (userId) => {
+    return HTTPClient.get(API_BASE + `/users/${userId}` + "/following");
   },
 
-  follow: (username) => {
-    return HTTPClient.post(API_BASE + "/users/" + username + "/follow");
+  follow: (userId) => {
+    return HTTPClient.post(API_BASE + `/users/${userId}` + "/follow");
   },
 
-  unfollow: (username) => {
-    return HTTPClient.post(API_BASE + "/users/" + username + "/unfollow");
+  unfollow: (userId) => {
+    return HTTPClient.post(API_BASE + `/users/${userId}` + "/unfollow");
   },
 
   logIn: (username) => {

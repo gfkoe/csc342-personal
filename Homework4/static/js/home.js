@@ -67,9 +67,10 @@ function createHowlHTML(howl) {
   cardHeader.className = "card-header";
   cardBody.className = "card-body";
   quoteBody.className = "blockquote mb-0";
-  // const user = api.getUser(howl.userId);
+
+  // api.getUser(howl.userId).then;
   text.innerHTML = howl.text;
-  cardHeader.innerHTML = howl.userId;
+  cardHeader.innerHTML = user.id;
   quoteBody.appendChild(text);
   cardBody.appendChild(quoteBody);
 
