@@ -88,14 +88,14 @@ apiRouter.get(
 
     followingHowls.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
 
-    const formattedHowls = followingHowls.map((howl) => ({
-      id: howl.id,
-      userId: howl.userId,
-      datetime: howl.datetime,
-      text: howl.text,
-      // Add other properties as needed
-    }));
-    res.json(formattedHowls);
+    // const formattedHowls = followingHowls.map((howl) => ({
+    //   id: howl.id,
+    //   userId: howl.userId,
+    //   datetime: howl.datetime,
+    //   text: howl.text,
+    //   // Add other properties as needed
+    // }));
+    res.json(followingHowls);
   }
 );
 
