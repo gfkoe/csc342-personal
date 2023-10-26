@@ -50,20 +50,33 @@ function fillHowlsHTML(howls) {
   const howlList = document.getElementById("howl_list");
   howls.forEach((howl) => {
     howlList.append(createHowlHTML(howl));
+    const br = document.createElement("br");
+    howlList.append(br);
   });
 }
 
 function createHowlHTML(howl) {
   const item = document.createElement("div");
-  item.classList.add("howl");
+
   item.className = "card";
+  const cardHeader = document.createElement("div");
   const cardBody = document.createElement("div");
   const quoteBody = document.createElement("blockquote");
-  item.appendChild(cardBody);
-  cardBody.appendChild(quoteBody);
   const text = document.createElement("p");
-  quoteBody.appendChild(text);
+
+  cardHeader.className = "card-header";
+  cardBody.className = "card-body";
+  quoteBody.className = "blockquote mb-0";
+  // const user = api.getUser(howl.userId);
   text.innerHTML = howl.text;
-  item.appendChild(text);
+  cardHeader.innerHTML = howl.userId;
+  quoteBody.appendChild(text);
+  cardBody.appendChild(quoteBody);
+
+  item.appendChild(cardHeader);
+  item.appendChild(cardBody);
+
+  item.classList.add("howl");
+
   return item;
 }

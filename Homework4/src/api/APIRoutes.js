@@ -61,10 +61,10 @@ apiRouter.post("/users/current/howls/create", SessionMiddleware, (req, res) => {
 });
 
 //Getting howls posted by a specific user
-apiRouter.get("/users/:username/howls", (req, res) => {
-  const username = req.params.username;
-  const usernameId = username.id;
-  const howlsFromUser = howls.filter((howl) => howl.userId === usernameId);
+apiRouter.get("/users/:userId/howls", (req, res) => {
+  const id = req.params.userId;
+  // const usernameId = username.id;
+  const howlsFromUser = howls.filter((howl) => howl.userId === id);
   res.json({ howlsFromUser });
 });
 
