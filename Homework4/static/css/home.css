@@ -1,0 +1,14 @@
+.navbar_brand {
+  justify-content: center;
+}
+
+#new_howl {
+  display: flex;
+  justify-content: center;
+}
+
+#howl_box {
+  height: 20vh;
+  width: 30%;
+  justify-content: start;
+}
