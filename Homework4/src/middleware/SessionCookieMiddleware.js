@@ -29,7 +29,7 @@ exports.initializeSession = (req, res, user) => {
   let sessionId = generateSessionId();
   let sessionData = {
     user: user,
-    visitedParks: [],
+    howls: [],
   };
 
   //send session ID in cookie to client
