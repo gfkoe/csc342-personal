@@ -56,9 +56,13 @@ function fillHowlsHTML(howls) {
 function createHowlHTML(howl) {
   const item = document.createElement("div");
   item.classList.add("howl");
-  item.href = "/howl?id=" + howl.id;
-
-  const text = document.createElement("h2");
+  item.className = "card";
+  const cardBody = document.createElement("div");
+  const quoteBody = document.createElement("blockquote");
+  item.appendChild(cardBody);
+  cardBody.appendChild(quoteBody);
+  const text = document.createElement("p");
+  quoteBody.appendChild(text);
   text.innerHTML = howl.text;
   item.appendChild(text);
   return item;
