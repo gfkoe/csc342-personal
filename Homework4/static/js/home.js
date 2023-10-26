@@ -34,6 +34,7 @@ addEventListener("DOMContentLoaded", (e) => {
 });
 
 api.getHowlsFromUserFollowing().then((howls) => {
+  console.log(howls);
   updateHowls(howls);
 });
 
@@ -57,8 +58,8 @@ function createHowlHTML(howl) {
   item.classList.add("howl");
   item.href = "/howl?id=" + howl.id;
 
-  const name = document.createElement("h2");
-  name.innerHTML = howl.name;
-  item.appendChild(name);
+  const text = document.createElement("h2");
+  text.innerHTML = howl.text;
+  item.appendChild(text);
   return item;
 }
