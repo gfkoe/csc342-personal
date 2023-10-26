@@ -6,6 +6,38 @@ export default {
     return HTTPClient.get(API_BASE + "/users/current");
   },
 
+  createHowl: () => {
+    return HTTPClient.post(API_BASE + "/users/current/howls/create");
+  },
+
+  getHowlsByUser: (username) => {
+    return HTTPClient.get(API_BASE + "/users/" + username + "/howls");
+  },
+
+  getHowls: () => {
+    return HTTPClient.get(API_BASE + "/howls");
+  },
+
+  getHowlsFromUserFollowing: () => {
+    return HTTPClient.get(API_BASE + "/users/current/following/howls");
+  },
+
+  getUser: (username) => {
+    return HTTPClient.get(API_BASE + "/users/" + username);
+  },
+
+  getFollowing: (username) => {
+    return HTTPClient.get(API_BASE + "/users/" + username + "/following");
+  },
+
+  follow: (username) => {
+    return HTTPClient.post(API_BASE + "/users/" + username + "/follow");
+  },
+
+  unfollow: (username) => {
+    return HTTPClient.post(API_BASE + "/users/" + username + "/unfollow");
+  },
+
   logIn: (username) => {
     let data = {
       username: username,

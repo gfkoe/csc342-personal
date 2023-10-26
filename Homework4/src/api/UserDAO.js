@@ -7,6 +7,7 @@ module.exports = {
       const user = users.find((user) => user.username == username);
       if (user) {
         // we found our user
+        console.log(user);
         resolve(getFilteredUser(user));
       } else {
         // if no user with provided username

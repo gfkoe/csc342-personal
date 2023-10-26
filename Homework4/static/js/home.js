@@ -33,7 +33,19 @@ addEventListener("DOMContentLoaded", (e) => {
   });
 });
 
-function fillHowlHTML(howls) {
+api.getHowlsFromUserFollowing().then((howls) => {
+  updateHowls(howls);
+});
+
+function updateHowls(howls) {
+  resetHowls();
+  fillHowlHTMLs();
+}
+function resetHowls(howls) {
+  const howlList = document.getElementById("howl_list");
+  howlList.innerHTML = "";
+}
+function fillHowlsHTML() {
   const howls = document.getElementById("howl_list");
   howls.forEach((howl) => {
     howls.append(createHowlHTML(howl));
@@ -41,7 +53,7 @@ function fillHowlHTML(howls) {
 }
 
 function createHowlHTML(howl) {
-  const item = document.createElement("a");
+  const item = document.createElement("div");
   item.classList.add("howl");
   item.href = "/howl?id=" + howl.id;
 

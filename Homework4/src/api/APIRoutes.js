@@ -71,6 +71,7 @@ apiRouter.get("/users/:username/howls", (req, res) => {
 
 //Getting howls posted by all users followed by the "authenticated" user
 apiRouter.get("/users/current/following/howls", (req, res) => {
+  const user = req.session.user;
   const userId = req.session.user.id;
   const id = req.params.userId;
 
