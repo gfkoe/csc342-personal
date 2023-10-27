@@ -68,9 +68,17 @@ function createHowlHTML(howl) {
   cardBody.className = "card-body";
   quoteBody.className = "blockquote mb-0";
 
-  // api.getUser(howl.userId).then;
+  api.getUser(howl.userId).then((user) => {
+    const userLink = document.createElement("a");
+    userLink.href = "/user?id=" + user.id;
+    userLink.innerHTML = "@" + user.username;
+    //cardHeader.innerHTML = "@" + user.username;
+    cardHeader.appendChild(userLink);
+    // console.log(user);
+  });
+
   text.innerHTML = howl.text;
-  // cardHeader.innerHTML = user.id;
+
   quoteBody.appendChild(text);
   cardBody.appendChild(quoteBody);
 

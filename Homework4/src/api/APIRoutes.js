@@ -86,7 +86,9 @@ apiRouter.get(
       followingHowls.push(...howlsFromUser);
     }
 
-    followingHowls.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
+    followingHowls.sort(
+      (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime()
+    );
 
     // const formattedHowls = followingHowls.map((howl) => ({
     //   id: howl.id,
@@ -108,7 +110,7 @@ apiRouter.get("/users/:userId", SessionMiddleware, (req, res) => {
       let result = {
         user: user,
       };
-      res.json(user);
+      res.json(result);
     })
     .catch((err) => {
       console.log(err);
