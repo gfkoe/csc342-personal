@@ -70,11 +70,10 @@ function createHowlHTML(howl) {
 
   api.getUser(howl.userId).then((user) => {
     const userLink = document.createElement("a");
-    userLink.href = "/user?id=" + user.id;
-    userLink.innerHTML = "@" + user.username;
+    userLink.href = "/user?id=" + user.user.id;
+    userLink.innerHTML = "@" + user.user.username;
     //cardHeader.innerHTML = "@" + user.username;
     cardHeader.appendChild(userLink);
-    // console.log(user);
   });
 
   text.innerHTML = howl.text;
