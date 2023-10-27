@@ -70,7 +70,7 @@ function createHowlHTML(howl) {
 
   // api.getUser(howl.userId).then;
   text.innerHTML = howl.text;
-  cardHeader.innerHTML = user.id;
+  // cardHeader.innerHTML = user.id;
   quoteBody.appendChild(text);
   cardBody.appendChild(quoteBody);
 
