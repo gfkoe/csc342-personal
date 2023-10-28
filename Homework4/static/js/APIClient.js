@@ -6,8 +6,12 @@ export default {
     return HTTPClient.get(API_BASE + "/users/current");
   },
 
-  createHowl: () => {
-    return HTTPClient.post(API_BASE + "/users/current/howls/create");
+  createHowl: (text) => {
+    let data = {
+      text: text,
+    };
+
+    return HTTPClient.post(API_BASE + "/users/current/howls/create", data);
   },
 
   getHowlsByUser: (userId) => {

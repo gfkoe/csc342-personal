@@ -1,6 +1,23 @@
 import api from "./APIClient.js";
 
-addEventListener("DOMContentLoaded", (e) => {});
+addEventListener("DOMContentLoaded", (e) => {
+  const postHowl = document.querySelector("#postHowl");
+  const text = document.querySelector("#text_box");
+
+  postHowl.addEventListener("click", (e) => {
+    // console.log(text.value);
+    api
+      .createHowl(text.value)
+      .then((howlData) => {
+        // updateHowls(howlData);
+      })
+      .catch((err) => {
+        // errorBox.classList.remove("hidden");
+        // errorBox.innerHTML = err;
+        console.error(err);
+      });
+  });
+});
 api.getCurrentUser().then((user) => {
   console.log(user);
   const userLink = document.getElementById("userbutton");
@@ -14,7 +31,7 @@ api.getHowlsFromUserFollowing().then((howls) => {
 });
 
 function updateHowls(howls) {
-  resetHowls(howls);
+  // resetHowls(howls);
   fillHowlsHTML(howls);
 }
 function resetHowls(howls) {

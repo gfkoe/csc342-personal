@@ -44,16 +44,14 @@ apiRouter.get("/users/current", SessionMiddleware, (req, res) => {
 
 //Creating a new howl.
 apiRouter.post("/users/current/howls/create", SessionMiddleware, (req, res) => {
-  const user = req.session.user;
+  // const user = req.session.user;
   const userId = req.session.user.id;
-
-  const { text } = req.body;
-
+  console.log(req.body.text);
   const newHowl = {
-    id: howlsData.length + 1, // Assign a unique ID to the new howl
+    id: howls.length + 1, // Assign a unique ID to the new howl
     userId: userId,
     datetime: new Date().toISOString(), // Current datetime in ISO format
-    text: text,
+    text: req.body.text,
   };
 
   howls.push(newHowl);
@@ -125,22 +123,23 @@ apiRouter.get("/users/:userId/following", SessionMiddleware, (req, res) => {
 //Following a user
 apiRouter.post("/users/:userId/follow", SessionMiddleware, (req, res) => {
   const followId = req.params.userId;
+  console.log(followId);
   // const usernameId = username.id;
   const userId = req.session.user.id;
-  follows[userId].following.push(folllowId);
-  res.send("Now following user: " + followId);
+  follows[userId].following.push(followId);
+  res.send(followId);
 });
 
 //Unfollowing a user
 apiRouter.post("/users/:userId/unfollow", SessionMiddleware, (req, res) => {
-  const unfollowId = req.params.userId;
+  const unfollowId = req.body.userId;
   // const usernameId = username.id;
   const userId = req.session.user.id;
   follows[userId].following = follows[userId].following.filter(
     (id) => id !== unfollowId
   );
 
-  res.send("Now unfollowing user: " + usernameId);
+  res.send(unfollowId);
 });
 
 module.exports = apiRouter;

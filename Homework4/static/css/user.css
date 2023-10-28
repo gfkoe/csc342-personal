@@ -34,3 +34,9 @@ body {
   margin-right: auto;
   max-width: 800px;
 }
+
+#follow_button {
+  background-color: #141d26;
+  color: white;
+  border-color: black;
+}

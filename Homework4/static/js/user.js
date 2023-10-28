@@ -19,10 +19,32 @@ function updateUserBlock(user) {
   const userInfo = document.getElementById("user_info");
   const usernameText = document.createElement("p");
   const usernameTextDiv = document.getElementById("user_info_username");
+  const button = document.createElement("button");
+  button.className = "btn btn-primary btn-block mb-4";
+  button.innerHTML = "Follow";
+  button.id = "follow_button";
+
   usernameText.innerHTML = "@" + user.user.username;
   const userBody = document.getElementById("user_body");
   const userBodyText = document.createElement("p");
+  userBodyText.innerHTML = user.user.first_name + " " + user.user.last_name;
+  button.addEventListener("click", (e) => {
+    api
+      .follow(user.user.id)
+      .then((newUser) => {})
+      .catch((err) => {
+        // errorBox.classList.remove("hidden");
+        // errorBox.innerHTML = err;
+        console.error(err);
+      });
+  });
+  userBody.appendChild(userBodyText);
+  const img = document.createElement("img");
+  img.className = "profile_picture";
+  img.src = user.user.avatar;
+  usernameTextDiv.appendChild(img);
   usernameTextDiv.appendChild(usernameText);
+  usernameTextDiv.appendChild(button);
 }
 
 function updateHowls(howls) {
