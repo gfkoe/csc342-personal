@@ -55,7 +55,9 @@ function createHowlHTML(howl) {
   cardHeader.className = "card-header";
   cardBody.className = "card-body";
   quoteBody.className = "blockquote mb-0";
-
+  const date = document.createElement("footer");
+  date.innerHTML = howl.datetime;
+  date.className = "blockquote-footer";
   api.getUser(howl.userId).then((user) => {
     const userLink = document.createElement("a");
     userLink.href = "/user?id=" + user.user.id;
@@ -63,9 +65,12 @@ function createHowlHTML(howl) {
     //cardHeader.innerHTML = "@" + user.username;
     cardHeader.appendChild(userLink);
   });
+
   text.innerHTML = howl.text;
 
   quoteBody.appendChild(text);
+  quoteBody.appendChild(date);
+
   cardBody.appendChild(quoteBody);
 
   item.appendChild(cardHeader);
