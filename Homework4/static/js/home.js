@@ -1,40 +1,15 @@
 import api from "./APIClient.js";
 
-addEventListener("DOMContentLoaded", (e) => {
-  let userBtn = document.getElementById("userbutton");
-  userBtn.addEventListener("click", (e) => {
-    fetch("/api/users/current", {
-      method: "GET",
-    })
-      // .then((res) => {
-      //   if (!res.ok) {
-      //     throw new Error("response was not ok");
-      //   }
-      //   return res.text();
-      // })
-      .then((data) => {
-        try {
-          const userDataDiv = document.getElementById("userData");
-          userDataDiv.innerHTML = `
-            <p>ID: ${data.id}</p>
-            <p>First Name: ${data.first_name}</p>
-            <p>Last Name: ${data.last_name}</p>
-            <p>Username: ${data.username}</p>
-            <p>Avatar: ${data.avatar}</p>
-          `;
-        } catch (error) {
-          console.error("Error parsing JSON:", error);
-          // Handle the error - maybe display an error message to the user
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  });
-});
+addEventListener("DOMContentLoaded", (e) => {});
+api.getCurrentUser().then((user) => {
+  console.log(user);
+  const userLink = document.getElementById("userbutton");
 
+  userLink.href = "/user?id=" + user.id;
+  userLink.innerHTML = "@" + user.username;
+});
 api.getHowlsFromUserFollowing().then((howls) => {
-  console.log(howls);
+  // console.log(howls);
   updateHowls(howls);
 });
 
@@ -67,7 +42,9 @@ function createHowlHTML(howl) {
   cardHeader.className = "card-header";
   cardBody.className = "card-body";
   quoteBody.className = "blockquote mb-0";
-
+  const date = document.createElement("footer");
+  date.innerHTML = howl.datetime;
+  date.className = "blockquote-footer";
   api.getUser(howl.userId).then((user) => {
     const userLink = document.createElement("a");
     userLink.href = "/user?id=" + user.user.id;
@@ -77,8 +54,9 @@ function createHowlHTML(howl) {
   });
 
   text.innerHTML = howl.text;
-
   quoteBody.appendChild(text);
+  quoteBody.appendChild(date);
+
   cardBody.appendChild(quoteBody);
 
   item.appendChild(cardHeader);

@@ -61,11 +61,15 @@ apiRouter.post("/users/current/howls/create", SessionMiddleware, (req, res) => {
 });
 
 //Getting howls posted by a specific user
-apiRouter.get("/users/:userId/howls", (req, res) => {
-  const id = req.params.userId;
-
-  const howlsFromUser = howls.filter((howl) => howl.userId === id);
-  res.json({ howlsFromUser });
+apiRouter.get("/users/:userId/howls", SessionMiddleware, (req, res) => {
+  const userId = parseInt(req.params.userId, 10);
+  // const howlsFromUser = [];
+  const userHowls = howls.filter((howl) => howl.userId === userId);
+  // howlsFromuser.push(...userHowls);
+  userHowls.sort(
+    (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime()
+  );
+  res.json(userHowls);
 });
 
 //Getting howls posted by all users followed by the "authenticated" user
@@ -90,13 +94,6 @@ apiRouter.get(
       (a, b) => new Date(b.datetime).getTime() - new Date(a.datetime).getTime()
     );
 
-    // const formattedHowls = followingHowls.map((howl) => ({
-    //   id: howl.id,
-    //   userId: howl.userId,
-    //   datetime: howl.datetime,
-    //   text: howl.text,
-    //   // Add other properties as needed
-    // }));
     res.json(followingHowls);
   }
 );
@@ -127,20 +124,20 @@ apiRouter.get("/users/:userId/following", SessionMiddleware, (req, res) => {
 
 //Following a user
 apiRouter.post("/users/:userId/follow", SessionMiddleware, (req, res) => {
-  const usernameId = req.params.userId;
+  const followId = req.params.userId;
   // const usernameId = username.id;
   const userId = req.session.user.id;
-  follows[userId].following.push(usernameId);
-  res.send("Now following user: " + usernameId);
+  follows[userId].following.push(folllowId);
+  res.send("Now following user: " + followId);
 });
 
 //Unfollowing a user
 apiRouter.post("/users/:userId/unfollow", SessionMiddleware, (req, res) => {
-  const username = req.params.userId;
+  const unfollowId = req.params.userId;
   // const usernameId = username.id;
   const userId = req.session.user.id;
   follows[userId].following = follows[userId].following.filter(
-    (id) => id !== usernameId
+    (id) => id !== unfollowId
   );
 
   res.send("Now unfollowing user: " + usernameId);
