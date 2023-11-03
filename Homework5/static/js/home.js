@@ -32,7 +32,7 @@ function updateUserBlock(user) {
   button.addEventListener("click", (e) => {
     e.preventDefault();
     api.logOut().then(() => {
-      document.location = "/login";
+      document.location = "./login";
     });
   });
   userBody.appendChild(userBodyText);

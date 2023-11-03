@@ -82,7 +82,7 @@ function createHowlHTML(howl) {
   date.className = "blockquote-footer";
   api.getUser(howl.userId).then((user) => {
     const userLink = document.createElement("a");
-    userLink.href = "/user?id=" + user.user.id;
+    userLink.href = "./user?id=" + user.user.id;
     userLink.innerHTML = "@" + user.user.username;
     //cardHeader.innerHTML = "@" + user.username;
     cardHeader.appendChild(userLink);
