@@ -7,7 +7,7 @@ addEventListener("DOMContentLoaded", (e) => {
       .logIn(username.value)
       .then((userData) => {
         localStorage.setItem("user", JSON.stringify(userData.user));
-        document.location = "/hw4";
+        document.location = "/hw4/";
       })
       .catch((err) => {
         console.error(err);
