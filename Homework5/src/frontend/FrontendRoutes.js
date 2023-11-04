@@ -6,7 +6,7 @@ const html_dir = path.join(__dirname, "../../templates/");
 frontendRouter.get("/login", (req, res) => {
   res.sendFile(`${html_dir}login.html`);
 });
-frontendRouter.get("/home", (req, res) => {
+frontendRouter.get("/", (req, res) => {
   res.sendFile(`${html_dir}index.html`);
 });
 
