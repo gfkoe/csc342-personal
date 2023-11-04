@@ -1,4 +1,4 @@
-
+1. [Homework5/templates] https://github.ncsu.edu/engr-csc342/csc342-2023Fall-gfkoeb/tree/main/Homework5/templates
 
 1. The main challenge that I faced was trying to figure out how to make a JWT signature 
 by hand, and I had to check the crypto node js documentation as well as reading a bit
