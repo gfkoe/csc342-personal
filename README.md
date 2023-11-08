@@ -19,7 +19,12 @@
 
 <details>
 <summary>Homework3</summary>
-1. [Homework2/README.md](https://github.ncsu.edu/engr-csc342/csc342-2023Fall-gfkoeb/blob/main/Homework3/README.md)
+1. [Homework3/README.md](https://github.ncsu.edu/engr-csc342/csc342-2023Fall-gfkoeb/blob/main/Homework3/README.md)
+</details>
+
+<details>
+<summary>Homework4</summary>
+1. [Homework4/README.md](https://github.ncsu.edu/engr-csc342/csc342-2023Fall-gfkoeb/blob/main/Homework4/README.md)
 </details>
 
 <details>
