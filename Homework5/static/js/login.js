@@ -12,7 +12,7 @@ loginButton.addEventListener("click", (e) => {
   api
     .logIn(username.value, password.value)
     .then((userData) => {
-      document.location = "./";
+      document.location = "../";
     })
     .catch((err) => {
       errorBox.classList.remove("hidden");

@@ -8,7 +8,7 @@ api
   .catch((error) => {
     if (error.status === 401) {
       console.log("We are not logged in");
-      document.location = "/login";
+      document.location = "../login";
     } else {
       console.log(`${error.status}`, error);
     }
@@ -32,7 +32,7 @@ function updateUserBlock(user) {
   button.addEventListener("click", (e) => {
     e.preventDefault();
     api.logOut().then(() => {
-      document.location = "./login";
+      document.location = "../login";
     });
   });
   userBody.appendChild(userBodyText);
